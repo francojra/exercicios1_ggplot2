@@ -58,7 +58,9 @@ ggplot(diamante, aes(x = profundidade, fill = transparencia)) +
  
 # c) Gráficos de boxplot e violino
 
-
+ggplot(diamante, aes(x = cor, y = preco)) +
+  geom_boxplot(outlier.shape = NA) +
+  stat_summary(fun = "mean", geom = "point", size = 3)
 
 # c) Gráfico de barras com média e erro padrão
 
