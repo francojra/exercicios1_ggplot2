@@ -63,17 +63,44 @@ ggplot(diamante, aes(x = cor, y = preco)) +
   stat_summary(fun = "mean", geom = "point", size = 3)
 
 ggplot(diamante, aes(x = cor, y = preco)) +
+  geom_jitter(alpha = 0.2) +
   geom_violin(fill = "orange", alpha = 0.6, trim = F) +
   geom_boxplot(outlier.shape = NA, width = 0.1, color = "black") +
-  stat_summary(fun = "mean", geom = "point", size = 3)
+  stat_summary(fun = "mean", geom = "point", size = 2.7)
 
 # c) Gráfico de barras com média e erro padrão
 
+diamante1 <- diamante %>%
+  group_by(corte) %>%
+  dplyr::summarise(media = mean(preco),
+            n = n(), 
+            sd = sd(preco),
+            se = sd/sqrt(n)) %>%
+  view()
 
+ggplot(diamante1, aes(x = fct_reorder(corte, media), 
+                      y = media)) +
+  geom_col(fill = "orange", alpha = 0.7) +
+  geom_errorbar(aes(ymin = media - se, ymax = media + se),
+                size = 0.8, width = 0.3) + 
+  geom_text(aes(label = n), vjust = 7) +
+  labs(x = "Tipo de corte", y = "Preço médio (dollars)", 
+       title = "Preços de diamantes por tipo de corte") +
+  theme(axis.text = element_text(colour = "black"))
 
 # d) Gráfico de linhas
 
+diamante2 <- diamante %>%
+  select(transparencia, cor, quilate) %>%
+  group_by(cor, transparencia) %>%
+  dplyr::summarise(media = mean(quilate)) %>%
+  view()
+  
 
+ggplot(diamante2, aes(x = transparencia, y = media,
+                     group = cor, color = cor)) +
+  geom_point() +
+  geom_line()
 
 # e) Gráfico de dispersão
 
