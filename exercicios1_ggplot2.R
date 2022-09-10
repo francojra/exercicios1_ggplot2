@@ -106,6 +106,22 @@ ggplot(diamante2, aes(x = transparencia, y = media,
   geom_point() +
   geom_line()
 
+diamante3 <- diamante %>%
+  select(transparencia, corte, quilate) %>%
+  group_by(corte, transparencia) %>%
+  dplyr::summarise(media = mean(quilate)) %>%
+  view()
+
+ggplot(diamante3, aes(x = transparencia, y = media,
+                     group = corte, color = corte)) +
+  geom_point() +
+  geom_line() +
+  scale_color_viridis(discrete = T, 
+                      labels = c("ncv", "djn", "jvn",
+                                 "jvn", "dvnk")) +
+  labs(x = "Transparência", y = "Preço média (US dollars",
+       col = "Tipo de corte")
+
 # e) Gráfico de dispersão
 
 ggplot(diamante, aes(x = quilate, y = preco, col = cor)) +
