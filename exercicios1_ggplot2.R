@@ -62,6 +62,11 @@ ggplot(diamante, aes(x = cor, y = preco)) +
   geom_boxplot(outlier.shape = NA) +
   stat_summary(fun = "mean", geom = "point", size = 3)
 
+ggplot(diamante, aes(x = cor, y = preco)) +
+  geom_violin(fill = "orange", alpha = 0.6, trim = F) +
+  geom_boxplot(outlier.shape = NA, width = 0.1, color = "black") +
+  stat_summary(fun = "mean", geom = "point", size = 3)
+
 # c) Gráfico de barras com média e erro padrão
 
 
