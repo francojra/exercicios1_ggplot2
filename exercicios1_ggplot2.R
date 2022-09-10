@@ -68,6 +68,11 @@ ggplot(diamante, aes(x = cor, y = preco)) +
   geom_boxplot(outlier.shape = NA, width = 0.1, color = "black") +
   stat_summary(fun = "mean", geom = "point", size = 2.7)
 
+ggplot(diamante, aes(x = corte, y = preco)) +
+  geom_violin(fill = "orange", alpha = 0.6, trim = F) +
+  geom_boxplot(outlier.shape = NA, width = 0.1, color = "black") +
+  stat_summary(fun = "mean", geom = "point", size = 2.7)
+
 # c) Gráfico de barras com média e erro padrão
 
 diamante1 <- diamante %>%
@@ -96,7 +101,6 @@ diamante2 <- diamante %>%
   dplyr::summarise(media = mean(quilate)) %>%
   view()
   
-
 ggplot(diamante2, aes(x = transparencia, y = media,
                      group = cor, color = cor)) +
   geom_point() +
@@ -104,7 +108,8 @@ ggplot(diamante2, aes(x = transparencia, y = media,
 
 # e) Gráfico de dispersão
 
-
+ggplot(diamante, aes(x = quilate, y = preco, col = cor)) +
+  geom_point()
 
 
 
