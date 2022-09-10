@@ -17,19 +17,32 @@
 
 # Exercício 1
 
+diamante <- dados::diamante
+view(diamante)
 
+## Verificar quantidade de NAs por variável:
+
+quantos.na <- colwise(function(x) sum(is.na(x)))
+quantos.na(diamante)
 
 # Exercício 2
 
 library(tidyverse)
 library(viridis)
 library(hrbrthemes)
+hrbrthemes::import_roboto_condensed()
+library(dados)
+library(plyr)
 
 # Exercício 3
 
 # a) Gráficos de histograma e densidade
 
+ggplot(diamante, aes(x = preco)) +
+  geom_histogram(bins = 30)
 
+ggplot(diamante, aes(x = quilate)) +
+  geom_histogram(bins = 30)
  
 # c) Gráficos de boxplot e violino
 
