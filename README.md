@@ -9,9 +9,4 @@
 2. Respostas:
 - Exercício 1;
 - Exercício 2;
-- Exercício 3:
-* Gráficos de histograma e densidade;
-* Gráficos de boxplot e violino;
-* Gráfico de barras com média e erro padrão;
-* Gráfico de linhas;
-* Gráfico de dispersão.
+- Exercício 3.
