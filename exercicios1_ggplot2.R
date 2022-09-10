@@ -43,6 +43,18 @@ ggplot(diamante, aes(x = preco)) +
 
 ggplot(diamante, aes(x = quilate)) +
   geom_histogram(bins = 30)
+
+ggplot(diamante, aes(x = profundidade)) +
+  geom_histogram(bins = 30)
+
+ggplot(diamante, aes(x = preco, fill = cor)) +
+  geom_density()
+
+ggplot(diamante, aes(x = quilate, fill = corte)) +
+  geom_density()
+
+ggplot(diamante, aes(x = profundidade, fill = transparencia)) +
+  geom_density(alpha = 0.5)
  
 # c) Gráficos de boxplot e violino
 
