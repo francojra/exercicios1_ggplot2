@@ -129,8 +129,9 @@ ggplot(diamante3, aes(x = transparencia, y = media,
 ggplot(diamante, aes(x = quilate, y = preco, col = cor)) +
   geom_point()
 
-p1 <- ggplot(diamante, aes(x = quilate, y = preco)) +
-  geom_point() 
+p1 <- ggplot(diamante, aes(x = quilate, y = preco, col = cor)) +
+  geom_point(alpha = 0.4) +
+  theme(legend.position = "bottom")
 
 # with marginal histogram
 ggMarginal(p1, type = "histogram")
