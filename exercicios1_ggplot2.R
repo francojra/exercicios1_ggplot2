@@ -19,6 +19,7 @@
 
 diamante <- dados::diamante
 view(diamante)
+glimpse(diamante)
 
 ## Verificar quantidade de NAs por variável:
 
@@ -33,6 +34,7 @@ library(hrbrthemes)
 hrbrthemes::import_roboto_condensed()
 library(dados)
 library(plyr)
+library(ggExtra) # Pacote para adicionar histogramas ao gráfico de dispersão
 
 # Exercício 3
 
@@ -127,6 +129,11 @@ ggplot(diamante3, aes(x = transparencia, y = media,
 ggplot(diamante, aes(x = quilate, y = preco, col = cor)) +
   geom_point()
 
+p1 <- ggplot(diamante, aes(x = quilate, y = preco)) +
+  geom_point() 
+
+# with marginal histogram
+ggMarginal(p1, type = "histogram")
 
 
 
