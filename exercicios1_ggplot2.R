@@ -130,7 +130,7 @@ ggplot(diamante, aes(x = quilate, y = preco, col = cor)) +
   geom_point()
 
 p1 <- ggplot(diamante, aes(x = quilate, y = preco, col = cor)) +
-  geom_point(alpha = 0.4) +
+  geom_point(alpha = 0.8) +
   theme(legend.position = "bottom")
 
 # with marginal histogram
